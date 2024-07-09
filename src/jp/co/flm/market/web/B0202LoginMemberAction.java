@@ -53,7 +53,7 @@ public class B0202LoginMemberAction {
         String memberId = req.getParameter("memberId");
         String password = req.getParameter("password");
 
-        // 入力値を確認する（空チェック）
+        // 入力値を確認する（空チェック）。
         if (memberId.length() == 0) {
             errorMessageList.add("会員IDは入力必須項目です。");
         }
