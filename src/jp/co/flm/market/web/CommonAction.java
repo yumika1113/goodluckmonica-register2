@@ -24,7 +24,7 @@ public class CommonAction {
      */
     public String execute(HttpServletRequest req) {
 
-        String page = "DefaultMenu.jsp";
+        String page = "Top.jsp";
 
         return page;
     }
