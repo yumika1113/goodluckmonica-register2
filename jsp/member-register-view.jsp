@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>A社オンラインショッピング</title>
+<title>A社オンラインショップ会員登録</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/style.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/loginInputCheck.js"></script>
@@ -30,7 +30,7 @@
 			<table>
 				<tr>
 					<td>名前</td>
-					<td><input type="text" name="membername" id="membername" size="10"></td>
+					<td><input type="text" name="memberName" id="memberName" size="10"></td>
 				</tr>
 				<tr>
 					<td>性別</td>
@@ -48,7 +48,7 @@
 				<tr>
 					<td>住所</td>
 					<td><input type="text" name="address" id="address"
-						size="10"></td>
+						size="20"></td>
 				</tr>
 				<tr>
 					<td>電話番号</td>
@@ -61,15 +61,15 @@
 						size="10"></td>
 				</tr>
 			</table>
-			<br> <input type="hidden" name="flag" value="B0201CheckMember">
+			<br> <input type="hidden" name="flag" value="B0201CheckMemberAction">
 			<input type="submit" value="確認">
 			</form>
 
-
-			<p>
+		<p>
 			<a href="${pageContext.request.contextPath}/mserv">[トップに戻る]</a>
 		</p>
 		<%-- contents end --%>
+</div>
 
 
 
