@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import jp.co.flm.market.common.MarketBusinessException;
 import jp.co.flm.market.common.MarketSystemException;
 import jp.co.flm.market.entity.Member;
+import jp.co.flm.market.logic.RegisterMemberLogic;
 
 
 public class B0201CheckEmailAction {
