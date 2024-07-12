@@ -28,14 +28,14 @@ public class B0201CheckMemberAction {
             ArrayList<String> errorMessageList = new ArrayList<String>();
 
            //フォームで入力された「名前」 「性別」「住所」「電話番号」「パスワード」を取得する。
-            String membername = req.getParameter("membername");
+            String memberName = req.getParameter("memberName");
             String gender = req.getParameter("gender");
             String address = req.getParameter("address");
             String phone = req.getParameter("phone");
             String password = req.getParameter("password");
 
             //入力値を確認する（空チェック）
-            if (membername.length() == 0) {
+            if (memberName.length() == 0) {
                 errorMessageList.add("名前は入力必須項目です。");
             }
             if (gender.length() == 0) {
@@ -52,7 +52,7 @@ public class B0201CheckMemberAction {
             }
 
             //入力値を確認する（文字数が条件に当てはまっているかどうか）
-            if(membername.length() >41) {
+            if(memberName.length() >41) {
                 errorMessageList.add("名前は40字以内で入力してください。");
             }
             if(address.length() >81) {
@@ -61,7 +61,7 @@ public class B0201CheckMemberAction {
             if(phone.length() >14) {
                 errorMessageList.add("電話番号は13字以内で入力してください。");
             }
-            if(password.length() <3 && password.length()>9) {
+            if(password.length() > 3 && password.length() < 9) {
                 errorMessageList.add("パスワードは4文字以上8文字以内で入力してください。");
             }
 
@@ -82,7 +82,7 @@ public class B0201CheckMemberAction {
 
         if (page == null) {   //pageがnullの時はエラー発生していない状態
               //フォームで入力された「名前」 「性別」「住所」「電話番号」「パスワード」を取得する。
-                String membername = req.getParameter("membername");
+                String memberName = req.getParameter("memberName");
                 String gender = req.getParameter("gender");
                 String address = req.getParameter("address");
                 String phone = req.getParameter("phone");
@@ -91,17 +91,25 @@ public class B0201CheckMemberAction {
              // セッションを取得する。
                 HttpSession session = req.getSession(false);
 
-                // 会員情報をセッションへ格納する。
-                session.setAttribute("memberId", membername);
-                session.setAttribute("memberId", gender);
-                session.setAttribute("memberId", address);
-                session.setAttribute("memberId", phone);
-                session.setAttribute("memberId", password);
+               //CheckEmailActionクラスで生成したオブジェクトに"member"セッションの情報を代入
+                Member member = (Member) session.getAttribute("member");
+
+                //Memberオブジェクトにそれぞれの値を代入
+                member.setMemberName(memberName);
+                member.setGender(gender);
+                member.setAddress(address);
+                member.setPhone(phone);
+                member.setPassword(password);
+
+                // セッションに会員情報を保存する
+                session.setAttribute("member", member);
+
 
                 //確認画面に遷移する
-                page = "member-register-confirm.jsp";
+                page = "member-register-confirm-view.jsp";
 
         }
+                return page;
 
             }catch (MarketSystemException e) {
                 // エラーメッセージを取得する。

@@ -54,25 +54,38 @@ public class RegisterMemberLogic {
             //データベースの接続を取得する
             con = ConnectionManager.getConnection();
 
+          //オートコミットの解除
+            con.setAutoCommit(false);
+
             //Memberテーブルアクセス用のDAOを生成し、会員登録メソッドを呼び出す。
             MemberDAO memberDAO = new MemberDAO(con);
             memberDAO.registerMember(member);
 
+          //トランザクションのコミット
+            con.commit();
+
             //データベース接続が失敗した時
-        }catch (SQLException e) {
-            e.printStackTrace();
-                throw new MarketSystemException("システムエラーです。システム管理者に連絡してください。");
-
-        }finally {
+        } catch (SQLException e) {
             try {
-                        if(con != null) {
-                            con.close();
-                        }
-            }catch(SQLException e) {
-                e.printStackTrace();
-                throw new MarketSystemException("システムエラーが発生しました。システム管理者に連絡してください。");
-            }
-        }
-    }
+                //トランザクションのロールバック
+               if(con != null)
+               {
+                   con.rollback();
+               }
+               } catch (SQLException e1) {
+                    throw new MarketSystemException("システムエラーが発生しました。システム管理者に連絡してください。");
+                   }
+               } finally {
+                   try {
+                   if(con != null) {
 
-    }
+                           // データベース接続の切断
+                       con.close();
+                       }
+                   } catch(SQLException e2) {
+                    throw new MarketSystemException("システムエラーが発生しました。システム管理者に連絡してください。");
+                   }
+               }
+           }
+}
+

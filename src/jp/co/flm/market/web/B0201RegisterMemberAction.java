@@ -1,6 +1,8 @@
 package jp.co.flm.market.web;
 
 import java.util.ArrayList;
+
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import jp.co.flm.market.common.MarketBusinessException;
@@ -14,13 +16,13 @@ public class B0201RegisterMemberAction {
 
         public String execute(HttpServletRequest req) {
             // セッションを取得する。できなかった場合は新規作成する。
-              req.getSession(true);
+              HttpSession session = req.getSession(true);
 
             try {
               //Memberオブジェクトを生成
-                Member member = new Member();
+//                Member member = new Member();
 
-              //セッション情報の取得
+                //セッション情報の取得
                 Member member = (Member) session.getAttribute("member");
 
                 //RegisterMemberLogicオブジェクトを生成
@@ -32,8 +34,11 @@ public class B0201RegisterMemberAction {
                 //次の画面で表示されるように会員情報をsetする
                 req.setAttribute("member", member);
 
+              //会員登録が成功したらセッション情報を削除
+                session.removeAttribute("member");
+
                 // 会員登録結果画面に遷移する
-                page = "/member-register-result-view.jsp";
+                page = "member-register-result-view.jsp";
 
             } catch (MarketSystemException e) {
                 // エラーメッセージを取得する。
@@ -50,7 +55,6 @@ public class B0201RegisterMemberAction {
         return page;
      }
     }
-
 
 
 
