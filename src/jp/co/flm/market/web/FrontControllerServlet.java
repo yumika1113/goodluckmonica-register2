@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import jp.co.flm.market.common.MarketBusinessException;
-//import jp.co.flm.market.common.MarketSystemException;
-
 /**
  * フロントコントローラクラス
  *
@@ -72,8 +69,8 @@ public class FrontControllerServlet extends HttpServlet {
         }
         switch (flag) {
             case "TOP":
-                CommonShowTopPageAction commonShowTopPageAction = new CommonShowTopPageAction();
-                page = commonShowTopPageAction.execute(request);
+                CommonAction commonAction = new CommonAction();
+                page = commonAction.execute(request);
                 break;
             case "CommonLogin":
                 CommonLoginAction commonLoginAction = new CommonLoginAction();
@@ -100,20 +97,6 @@ public class FrontControllerServlet extends HttpServlet {
                 B0202LoginMemberAction b0202LoginMemberAction = new B0202LoginMemberAction();
                 page = b0202LoginMemberAction.execute(request);
                 break;
-            case "B0201CheckEmailAction":
-                B0201CheckEmailAction b0201CheckEmailAction = new B0201CheckEmailAction();
-                page = b0201CheckEmailAction.execute(request);
-                break;
-            case "B0201CheckMemberAction":
-                B0201CheckMemberAction b0201CheckMemberAction = new B0201CheckMemberAction();
-                page = b0201CheckMemberAction.execute(request);
-                break;
-
-            case "B0201RegisterMemberAction":
-                B0201RegisterMemberAction b0201RegisterMemberAction = new B0201RegisterMemberAction();
-                page = b0201RegisterMemberAction.execute(request);
-                break;
-
             default:
                 // エラーメッセージを取得する。
                 String errorMessage = "不正な操作です。";

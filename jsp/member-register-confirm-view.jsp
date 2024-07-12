@@ -47,7 +47,7 @@
                     <td><c:out value="${member.phone}" /></td>
                 </tr>
                 <tr>
-                    <td>会員ID（メールアドレス）</td>
+                    <td>メールアドレス</td>
                     <td><c:out value="${member.memberId}" /></td>
                 </tr>
             </table>
