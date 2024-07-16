@@ -69,7 +69,7 @@ public class B0201CheckEmailAction {
                //取得したメールアドレスをもとにデータベースを確認する
                RegisterMemberLogic logic = new RegisterMemberLogic();
                logic.getMember(memberId); //getMember(業務Logic)メソッドに戻り値ない
-               
+
 
                //セッションを取得する。
                HttpSession session = req.getSession(false); //セッションがない場合は何もしない（絶対新規作成されてるはずなのでTrue指定しない）
@@ -92,7 +92,7 @@ public class B0201CheckEmailAction {
                    errorMessageList.add(errorMessage);
                    req.setAttribute("errorMessageList", errorMessageList);
 
-                   page = "member-register-view.jsp";
+                   page = "email-register-view.jsp";
 
                }catch(MarketSystemException e) {
                  //エラーメッセージを取得する。

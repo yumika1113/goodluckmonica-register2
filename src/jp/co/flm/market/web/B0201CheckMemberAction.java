@@ -61,7 +61,7 @@ public class B0201CheckMemberAction {
             if(phone.length() >14) {
                 errorMessageList.add("電話番号は13字以内で入力してください。");
             }
-            if(password.length() > 3 && password.length() < 9) {
+            if(password.length() < 4 || password.length() > 8) {
                 errorMessageList.add("パスワードは4文字以上8文字以内で入力してください。");
             }
 
