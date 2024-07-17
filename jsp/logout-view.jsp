@@ -8,25 +8,27 @@
 <title>オンラインショップ</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/style.css">
-<style>
-body {
+	<style>
+	body {
             font-family: Arial, sans-serif;
         }
-</style>
+	</style>
 </head>
 <body>
 	<jsp:include page="/jsp/header.jsp" />
 	<div id="mainArea">
-		<h1>エラー</h1>
+		<h1>ログアウト</h1>
+
 		<%-- contents start --%>
-		<div id="target" style="color: red;">
-			<c:forEach var="errorMessage" items="${errorMessageList}"
-				varStatus="status">
-				<p>
-					<c:out value="${errorMessage}" />
-				</p>
-			</c:forEach>
+
+				<div id="target" style="color: red;">
+			<c:out value="${message}" />
 		</div>
+
+		<p>ご来店ありがとうございました！</p>
+		<p></p>
+		<p></p>
+		<p></p>
 		<p>
 			<a href="${pageContext.request.contextPath}/mserv">[トップに戻る]</a>
 		</p>
