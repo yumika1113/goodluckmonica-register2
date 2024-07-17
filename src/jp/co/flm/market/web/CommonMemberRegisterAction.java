@@ -1,5 +1,5 @@
 /**
- * jp.co.flm.market.web.CommonLoginAction
+ * jp.co.flm.market.web.CommonAction
  *
  * All Rights Reserved, Copyright Fujitsu Learning Media Limited
  */
@@ -8,12 +8,12 @@ package jp.co.flm.market.web;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * ログイン画面へ遷移するアクションクラスです。
+ * トップ画面へ遷移するアクションクラスです。
  *
  * @author FLM
  * @version 1.0 YYYY/MM/DD
  */
-public class CommonLoginAction implements ActionIF {
+public class CommonMemberRegisterAction implements ActionIF {
 
     /**
      * アクションを実行する。
@@ -24,7 +24,7 @@ public class CommonLoginAction implements ActionIF {
      */
     public String execute(HttpServletRequest req) {
 
-        String page = "member-login-view.jsp";
+        String page = "email-register-view.jsp";
 
         return page;
     }

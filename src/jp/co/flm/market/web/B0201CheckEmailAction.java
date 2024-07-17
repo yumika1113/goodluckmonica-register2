@@ -9,7 +9,7 @@ import jp.co.flm.market.entity.Member;
 import jp.co.flm.market.logic.RegisterMemberLogic;
 
 
-public class B0201CheckEmailAction {
+public class B0201CheckEmailAction implements ActionIF {
 
     //セッションを取得（ない場合新規作成する）
     public void checkSession(HttpServletRequest req) {

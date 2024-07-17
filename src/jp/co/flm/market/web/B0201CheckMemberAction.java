@@ -3,11 +3,10 @@ package jp.co.flm.market.web;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import jp.co.flm.market.common.MarketBusinessException;
 import jp.co.flm.market.common.MarketSystemException;
 import jp.co.flm.market.entity.Member;
 
-public class B0201CheckMemberAction {
+public class B0201CheckMemberAction implements ActionIF {
     //pageを初期化
     String page = null;
 
