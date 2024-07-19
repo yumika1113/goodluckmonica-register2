@@ -22,7 +22,7 @@ import jp.co.flm.market.logic.PurchaseProductsLogic;
  * @author FLM
  * @version 1.0 YYYY/MM/DD
  */
-public class B0103PurchaseMemberAction implements ActionIF {
+public class B0103PurchaseMemberAction implements ActionIF{
 
     /**
      * セッションチェックを行う。

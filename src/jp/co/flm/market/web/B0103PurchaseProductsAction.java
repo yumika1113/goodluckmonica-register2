@@ -19,7 +19,7 @@ import jp.co.flm.market.entity.Orders;
  * @author FLM
  * @version 1.0 YYYY/MM/DD
  */
-public class B0103PurchaseProductsAction {
+public class B0103PurchaseProductsAction implements ActionIF{
 
     /**
      * セッションチェックを行う。
@@ -141,5 +141,4 @@ public class B0103PurchaseProductsAction {
         return page;
     }
 }
-
 
